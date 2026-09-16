@@ -1,0 +1,11 @@
+*Questão 2 - discussão teórica - DFS ou BFS:*
+
+R: Foi adotada a busca em profundidade por considerar-se que, como a masmorra só tem um caminho da origem até o queijo, não havia necessidade de guardar tantas informações quanto é com a busca em largura. 
+
+A busca em largura sempre acharia o caminho mais rápido entre vários, mas nota-se que como corredores só tem 1 de largura, eles só possuem um caminho certo. No fim das contas, a complexidade de ambas seria parecida, com a diferença de que a busca em largura andaria em todas as direções ao mesmo tempo e sempre guardaria o os vários caminhos. Já a busca em profundidade sempre iria até um beco sem saída (dando pop() neste caminho) e retomaria de onde ainda tinha caminhos. 
+
+Além disso, o código da busca em profundidade não-recursivo já estava basicamente pronto da atividade 1 e poderia ser utilizado como base. 
+
+*Questão 2 - discussão teórica - como funciona:*
+
+R: O código recebe a maze já produzida, os parâmetros usados na produção da maze (símbolos) para identificação e um novo símbolo que é o de passo. O "rato" começa em maze[1][1] e procura na sala que chegaria após o deslocamento e, antes, no corredor entre as duas (o que antes era parede durante a criação de maze). Se o queijo estiver no corredor ele para e não segue pra sala. Caso o queijo esteja em maze[1][1], atualiza maze nessa coordenada com o símbolo '@' e retorna a maze atualizada. Do inverso, segue procurando e empilhando em uma lista: a posição de onde ele sai, a sala onde ele chega. Até o momento onde ele acha o queijo. Quando acha, ele pinta todas as as salas da maze por onde passou e os corredores entre elas de 'x' menos aquela onde o queijo estava, pintando-a de '@'. Retorna a maze pintada com o caminho.
